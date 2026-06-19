@@ -1,117 +1,373 @@
-# TravelBuddy - Full Stack Travel Booking Web Application
+# TravelBuddy – Full Stack Travel Booking Web Application
 
-Welcome to TravelBuddy! This is a MakeMyTrip clone built entirely with the MERN stack (MongoDB, Express, React, Node.js) and using standard JavaScript (.js / .jsx files as requested).
+TravelBuddy is a full-stack travel booking platform inspired by popular travel service providers. Built using the MERN stack (MongoDB, Express.js, React.js, and Node.js), the application enables users to search, book, and manage travel services including flights, hotels, trains, and cabs through a modern and responsive web interface.
+
+---
+
+## Project Overview
+
+TravelBuddy provides a centralized travel booking experience by integrating multiple transportation and accommodation services into a single platform.
+
+The application includes secure authentication, dynamic search functionality, booking management, payment simulation, role-based dashboards, and administrative controls.
+
+---
 
 ## Features
-- **Authentication**: JWT-based login, registration with bcrypt, User & Admin roles.
-- **Dynamic Search**: Search Flights, Hotels, Trains, and Cabs with specific criteria fields using an elegant MMT-style tabbed hero section.
-- **Unified Booking Flow**: Add to cart / book specific services and see price calculations.
-- **Simulated Payment Gateway**: 80% success mock payment gateway integrated into the checkout flow.
-- **Dashboards**: Separate views for Users (My Bookings, stats) and Admins (Overview stats, service management placeholders, booking status overrides).
 
-## Folder Structure
+### Authentication and Authorization
 
+* User Registration and Login
+* JWT-Based Authentication
+* Password Encryption with bcrypt
+* User and Admin Roles
+* Google Authentication Integration
+
+### Dynamic Travel Search
+
+* Flight Search
+* Hotel Search
+* Train Search
+* Cab Search
+* Advanced Search Filters
+* Tab-Based Search Interface
+
+### Booking Management
+
+* Unified Booking Flow
+* Add to Cart Functionality
+* Booking Confirmation
+* Booking History Tracking
+* Price Calculation Engine
+
+### Payment Gateway Simulation
+
+* Mock Payment Integration
+* Transaction Processing
+* Booking Status Updates
+* Payment Tracking
+
+### User Dashboard
+
+* Personal Booking History
+* Booking Statistics
+* User Profile Management
+
+### Admin Dashboard
+
+* Platform Statistics
+* Booking Management
+* Service Monitoring
+* Booking Status Control
+
+### Responsive User Interface
+
+* Modern Design
+* Mobile-Friendly Layout
+* Intuitive Navigation
+* Fast User Experience
+
+---
+
+## Technology Stack
+
+### Frontend
+
+* React.js
+* JavaScript (ES6+)
+* Vite
+* Tailwind CSS
+* React Context API
+
+### Backend
+
+* Node.js
+* Express.js
+
+### Database
+
+* MongoDB
+* Mongoose ODM
+
+### Authentication
+
+* JSON Web Token (JWT)
+* bcrypt.js
+* Google OAuth
+
+### APIs
+
+* RESTful APIs
+
+### Development Tools
+
+* Git
+* GitHub
+* Visual Studio Code
+
+---
+
+## Project Structure
+
+```text
+travelbuddy-backend
+│
+├── config
+├── controllers
+├── middleware
+├── models
+├── routes
+├── utils
+├── package.json
+└── server.js
+
+travelbuddy-frontend
+│
+├── public
+├── src
+│   ├── components
+│   ├── context
+│   ├── pages
+│   ├── App.jsx
+│   └── main.jsx
+├── package.json
+├── vite.config.js
+└── tailwind.config.js
 ```
-├── travelbuddy-backend
-│   ├── config
-│   │   └── db.js
-│   ├── controllers
-│   │   ├── adminController.js
-│   │   ├── authController.js
-│   │   ├── bookingController.js
-│   │   ├── paymentController.js
-│   │   └── serviceController.js
-│   ├── middleware
-│   │   └── authMiddleware.js
-│   ├── models
-│   │   ├── Booking.js
-│   │   ├── Cab.js
-│   │   ├── Flight.js
-│   │   ├── Hotel.js
-│   │   ├── Payment.js
-│   │   ├── Train.js
-│   │   └── User.js
-│   ├── routes
-│   │   ├── adminRoutes.js
-│   │   ├── authRoutes.js
-│   │   ├── bookingRoutes.js
-│   │   ├── paymentRoutes.js
-│   │   └── serviceRoutes.js
-│   ├── utils
-│   │   └── generateToken.js
-│   ├── .env
-│   ├── package.json
-│   └── server.js
-└── travelbuddy-frontend
-    ├── public
-    ├── src
-    │   ├── components
-    │   │   ├── Footer.jsx
-    │   │   ├── Navbar.jsx
-    │   │   └── SearchTabs.jsx
-    │   ├── context
-    │   │   └── AuthContext.jsx
-    │   ├── pages
-    │   │   ├── AdminDashboard.jsx
-    │   │   ├── Checkout.jsx
-    │   │   ├── Dashboard.jsx
-    │   │   ├── Home.jsx
-    │   │   ├── Login.jsx
-    │   │   ├── Register.jsx
-    │   │   └── SearchResults.jsx
-    │   ├── App.jsx
-    │   ├── index.css
-    │   └── main.jsx
-    ├── package.json
-    ├── tailwind.config.js (Vite inline config)
-    └── vite.config.js
+
+---
+
+## System Architecture
+
+```text
+Frontend (React.js)
+         |
+         v
+REST API Layer
+         |
+         v
+Backend (Node.js + Express.js)
+         |
+         v
+Authentication Services
+         |
+         v
+MongoDB Database
 ```
 
-## Setup Instructions
+---
+
+## Installation and Setup
 
 ### Prerequisites
-- Node.js installed
-- MongoDB installed and running locally on `localhost:27017`
 
-### 1. Database Setup
-Make sure your MongoDB server is running. No seed data is provided; you can create a user, log in, or modify the database manually to test out things or register as an Admin. To register as an admin, just send `"role": "Admin"` in the body during Registration via Postman or edit the DB directly.
+* Node.js
+* MongoDB
+* Git
 
-### 2. Backend Setup
-1. Open a terminal and navigate to the backend folder:
-   ```bash
-   cd travelbuddy-backend
-   ```
-2. Run database migration / setup and install dependencies (already installed during build time).
-   ```bash
-   npm install
-   ```
-3. Start the server:
-   ```bash
-   npm run dev
-   # OR
-   node server.js
-   ```
-   The backend will start on `http://localhost:5000`.
+---
 
-### 3. Frontend Setup
-1. Open a new terminal and navigate to the frontend folder:
-   ```bash
-   cd travelbuddy-frontend
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Start the Vite React app:
-   ```bash
-   npm run dev
-   ```
-   The frontend will start on `http://localhost:5173` (or similar).
+### Clone the Repository
 
-Enjoy building your journeys with TravelBuddy!
+```bash
+git clone https://github.com/yourusername/TravelBuddy.git
 
-google auth
-Frontend
+cd TravelBuddy
+```
+
+---
+
+## Database Setup
+
+Ensure MongoDB is installed and running locally:
+
+```bash
+mongodb://localhost:27017
+```
+
+Create collections automatically through the application or insert sample data manually.
+
+---
+
+## Backend Setup
+
+Navigate to the backend directory:
+
+```bash
+cd travelbuddy-backend
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the backend server:
+
+```bash
+npm run dev
+
+# OR
+
+node server.js
+```
+
+Backend URL:
+
+```text
+http://localhost:5000
+```
+
+---
+
+## Frontend Setup
+
+Navigate to the frontend directory:
+
+```bash
+cd travelbuddy-frontend
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the React application:
+
+```bash
+npm run dev
+```
+
+Frontend URL:
+
+```text
+http://localhost:5173
+```
+
+---
+
+## Google Authentication Setup
+
+### Frontend Dependencies
+
+```bash
 npm install @react-oauth/google jwt-decode
-Backend
+```
+
+### Backend Dependencies
+
+```bash
 npm install google-auth-library
+```
+
+### Environment Variables
+
+Frontend:
+
+```env
+VITE_GOOGLE_CLIENT_ID=your_google_client_id
+```
+
+Backend:
+
+```env
+GOOGLE_CLIENT_ID=your_google_client_id
+JWT_SECRET=your_secret_key
+MONGODB_URI=your_mongodb_connection_string
+```
+
+---
+
+## Core Modules
+
+### Authentication Module
+
+Handles user registration, login, Google OAuth, and authorization.
+
+### Search Module
+
+Provides search functionality for flights, hotels, trains, and cabs.
+
+### Booking Module
+
+Manages booking creation, updates, and cancellation.
+
+### Payment Module
+
+Processes payment simulation and transaction handling.
+
+### User Dashboard
+
+Displays user bookings, statistics, and account information.
+
+### Admin Dashboard
+
+Provides administrative controls and booking management.
+
+---
+
+## Security Features
+
+* JWT Authentication
+* Password Hashing with bcrypt
+* Protected API Routes
+* Role-Based Access Control
+* Google OAuth Authentication
+* Secure Session Management
+
+---
+
+## Application Workflow
+
+1. User registers or logs in.
+2. User searches for travel services.
+3. User selects a service and proceeds to booking.
+4. Payment process is initiated.
+5. Booking confirmation is generated.
+6. Booking history is stored and displayed in the dashboard.
+
+---
+
+## Future Enhancements
+
+* Real Payment Gateway Integration
+* Flight and Hotel APIs
+* Real-Time Ticket Availability
+* AI-Based Travel Recommendations
+* Travel Expense Tracker
+* Multi-Currency Support
+* Push Notifications
+* Mobile Application Development
+* Travel Review System
+
+---
+
+## Learning Outcomes
+
+This project demonstrates practical implementation of:
+
+* Full Stack Web Development
+* MERN Stack Architecture
+* REST API Development
+* JWT Authentication
+* Google OAuth Integration
+* MongoDB Database Design
+* Role-Based Access Control
+* Payment Processing Workflows
+* Responsive UI Development
+
+---
+
+## Author
+
+Atharva Dhanraj Kakde
+
+B.Tech Computer Science and Engineering
+Minor in Artificial Intelligence and Machine Learning (AI/ML)
+Jawaharlal Nehru Engineering College (JNEC), MGM University
+
+GitHub: https://github.com/atharvakakde
+
+Portfolio: https://atharva-kakde-portfolio.vercel.app
